@@ -2,8 +2,6 @@ import { Box, useMediaQuery } from "@mui/material";
 import Row1 from "./Row1";
 import Row2 from "./Row2";
 import Row3 from "./Row3";
-import { useTheme } from "@emotion/react";
-import DashboardBox from "@/components/DashboardBox";
 
 const gridTemplateLargeScreens = `
   "a b c"
@@ -50,8 +48,7 @@ const gridTemplateSmallScreens = `
   "j"
 `;
 
-const Dashboard = (props: Props) => {
-    const { palette } = useTheme ()
+const Dashboard = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
   return (
     <Box
@@ -61,8 +58,7 @@ const Dashboard = (props: Props) => {
       gap="1.5rem"
       sx={
         isAboveMediumScreens
-          ? 
-          {
+          ? {
               gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
               gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
               gridTemplateAreas: gridTemplateLargeScreens,
@@ -74,9 +70,9 @@ const Dashboard = (props: Props) => {
             }
       }
     >
-      <Row1></Row1>
-      <Row2></Row2>
-      <Row3></Row3>
+      <Row1 />
+      <Row2 />
+      <Row3 />
     </Box>
   );
 };
